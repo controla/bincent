@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+	
+
+
+
+.build/mega2560/CwPololuSerialServo/CwPololuSerialServo.d : lib/CwPololuSerialServo/CwPololuSerialServo.cpp
+	@mkdir -p .build/mega2560/CwPololuSerialServo
+	@/usr/bin/avr-gcc -mmcu=atmega2560 -ffunction-sections -fdata-sections -g -Os -w -DF_CPU=16000000L -DARDUINO=100 -I/usr/share/arduino/hardware/arduino/cores/arduino -I/usr/share/arduino/hardware/arduino/variants/mega -I/usr/share/arduino/hardware/arduino/cores/arduino -Ilib/CwPololuSerialServo -I/usr/share/arduino/libraries/SPI -I/usr/share/arduino/libraries/SD -I/usr/share/arduino/libraries/SD/utility -I/usr/share/arduino/libraries/Firmata -I/usr/share/arduino/libraries/Ethernet -I/usr/share/arduino/libraries/Ethernet/utility -I/usr/share/arduino/libraries/Stepper -I/usr/share/arduino/libraries/LiquidCrystal -I/usr/share/arduino/libraries/SoftwareSerial -I/usr/share/arduino/libraries/Servo -I/usr/share/arduino/libraries/Wire -I/usr/share/arduino/libraries/Wire/utility -I/usr/share/arduino/libraries/EEPROM  -MM $^ > $@
+	
+	@printf ".build/mega2560/CwPololuSerialServo/CwPololuSerialServo.d .build/mega2560/CwPololuSerialServo/" | cat - $@ > $@~ && mv $@~ $@
+
+
+
+.build/mega2560/CwPololuSerialServo/dependencies.d : .build/mega2560/CwPololuSerialServo/CwPololuSerialServo.d
+	@echo [96mScanning dependencies of CwPololuSerialServo[0m
+	@mkdir -p .build/mega2560/CwPololuSerialServo
+	@cat $^ > $@;
+
+all : .build/mega2560/CwPololuSerialServo/dependencies.d
+	@true
+
